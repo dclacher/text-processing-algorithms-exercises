@@ -1,0 +1,176 @@
+Data - W3C 
+ <> W3C
+
+ * Standards <> 
+ * Participate <> 
+ * Membership <> 
+ * About W3C <> 
+ * 
+Site Navigation
+
+Semantic Web  <>
+
+ * Vertical Applications <> 
+ * Inference <> 
+ * Query <> 
+ * Ontologies <> 
+ * Data <> 
+
+ * Skip <> 
+ * W3C <> » 
+ * Standards <> » 
+ * Semantic Web <> » 
+ * Data 
+Linked Data
+
+ * On this page → 
+ * what is linked data <> • 
+ * what is linked data used for <> • 
+ * examples <> • 
+ * learn more <> • 
+ * current status of specifications <> and groups <> 
+What is Linked Data?
+
+The Semantic Web is a Web of Data — of dates and titles and part numbers and 
+chemical properties and any other data one might conceive of. The collection of 
+Semantic Web technologies (RDF, OWL, SKOS, SPARQL, etc.) provides an 
+environment where application canquery <> that data, draw inferences <> using 
+vocabularies <>, etc. 
+
+However, to make the Web of Data a reality, it is important to have the huge 
+amount of data on the Web available in a standard format, reachable and 
+manageable by Semantic Web tools. Furthermore, not only does the Semantic Web 
+need access to data, butrelationships among data should be made available, too, 
+to create aWeb of Data (as opposed to a sheer collection of datasets). This 
+collection of interrelated datasets on the Web can also be referred to as 
+Linked Data.
+
+To achieve and create Linked Data, technologies should be available for a 
+common format (RDF), to make either conversion or on-the-fly access to existing 
+databases (relational, XML, HTML, etc). It is also important to be able to setup
+query <> endpoints to access that data more conveniently. W3C provides a 
+palette of technologies (RDF, GRDDL, POWDER, RDFa, the upcoming R2RML, RIF, 
+SPARQL) to get access to the data.
+
+What is Linked Data Used For?
+
+Linked Data lies at the heart of what Semantic Web is all about: large scale 
+integration of, and reasoning on, data on the Web. Almost all applications 
+listed in, saycollection of Semantic Web Case Studies and Use Cases 
+<http://www.w3.org/2001/sw/sweo/public/UseCases/> are essentially based on the 
+accessibility of, and integration of Linked Data at various level of 
+complexities.
+
+Examples
+
+A typical case of a large Linked Dataset is DBPedia <http://dbpedia.org>, 
+which, essentially, makes the content of Wikipedia available in RDF. The 
+importance of DBPedia is not only that it includes Wikipedia data, but also 
+that it incorporates links toother datasets on the Web, e.g., to Geonames 
+<http://www.geonames.org/>. By providing those extra links (in terms of RDF 
+triples) applications may exploit the extra (and possibly more precise) 
+knowledge from other datasets when developing an application; by virtue of 
+integrating facts from several datasets, the application may provide a much 
+better user experience.
+
+Learn More
+
+ Tim Berners-Lee's note on Linked Data 
+<http://www.w3.org/DesignIssues/LinkedData.html> gives a succinct description 
+of the Linked Data principles. The Semantic Web community also maintains alist 
+of books <http://esw.w3.org/topic/SwBooks> on a W3C Wiki page. Some of those 
+books are introductory in nature while others are conference proceedings or 
+textbook that address more advanced topics. Details ofrecent and upcoming 
+Semantic Web related talks <http://www.w3.org/2007/11/Talks/Semantic_Web.html>, 
+given by theW3C Staff <http://www.w3.org/People/>, the staff of the W3C Offices 
+<http://www.w3.org/Consortium/Offices/>, and members of the W3C Working Groups 
+are available separately; the slides are usually publicly available. The W3C 
+also maintains acollection of Semantic Web Case Studies and Use Cases 
+<http://www.w3.org/2001/sw/sweo/public/UseCases/> that show how Semantic Web 
+technologies, including Linked Data, are used in practice.
+
+Recent Press
+  18 June 
+Semantic Web Journal <http://semantic-web-journal.net/> 
+ “The Semantic Web Journal Celebrates the 25th Anniversary of the Web”  
+<http://semantic-web-journal.net/blog/semantic-web-journal-celebrates-25th-anniversary-web>
+  13 June 
+Laboratory Equipment <http://www.laboratoryequipment.com/> 
+ “Tech Lets You Track Your Data Online ”  
+<http://www.laboratoryequipment.com/news/2014/06/tech-lets-you-track-your-data-online>
+  26 March 
+Digital Journal <http://www.digitaljournal.com/> 
+ “The Apache Software Foundation Celebrates Document Freedom Day 2014”  
+<http://www.digitaljournal.com/pr/1812212> 
+  20 March 
+BusinessWire <http://www.businesswire.com/> 
+ “Pharmaceutical and IT Communities Collaborate on OASIS Clinical Trial Data 
+Standard for Content Management Systems”  
+<http://www.businesswire.com/news/home/20140320005916/en/Pharmaceutical-Communities-Collaborate-OASIS-Clinical-Trial-Data>
+
+Current Status of Specifications
+
+Learn more about the current status of specifications related to: 
+
+ * RDF <> 
+ * RDF Best Practices <> 
+ * RDFa <> 
+ * RDF Relationship to Other Formats <> 
+ * GRDDL <> 
+ * POWDER <> 
+ * Semantic Annotation for WSDL and XML Schema <> 
+ * Provenance <> 
+ * RDB2RDF <> 
+ * Linked Data <> 
+These W3C Groups <> are working on the related specifications: 
+
+ * Government Linked Data Working Group <http://www.w3.org/2011/gld/> 
+ * Linked Data Platform (LDP) Working Group <http://www.w3.org/2012/ldp/> 
+ * RDF Working Group <http://www.w3.org/2011/rdf-wg/> 
+ * RDFa Working Group <http://www.w3.org/2010/02/rdfa/> 
+ * Semantic Web Interest Group <http://www.w3.org/2001/sw/interest/> 
+Current Status
+
+ * RDF <> 
+ * RDF Best Practices <> 
+ * RDFa <> 
+ * RDF Relationship to Other Formats <> 
+ * GRDDL <> 
+ * POWDER <> 
+ * Semantic Annotation for WSDL and XML Schema <> 
+ * Provenance <> 
+ * RDB2RDF <> 
+ * Linked Data <> 
+Use It
+
+ * Tutorials <> 
+ * Business Case 
+ * Software 
+Validators
+
+ * RDF <http://www.w3.org/RDF/Validator/> 
+Logos
+
+ * RDF <http://www.w3.org/2007/10/sw-logos.html#sw-rdf> 
+Footer Navigation
+
+Navigation
+
+ * Home <> 
+ * Standards <> 
+ * Participate <> 
+ * Membership <> 
+ * About W3C <> 
+Contact W3C
+
+ * Contact <> 
+ * Help and FAQ <> 
+ * Sponsor / Donate <> 
+ * Site Map <> 
+ * Feedback <http://lists.w3.org/Archives/Public/site-comments/> 
+W3C Updates
+
+ *  <http://twitter.com/W3C> 
+Copyright © 2013 W3C ® (MIT <http://www.csail.mit.edu/>, ERCIM 
+<http://www.ercim.eu/>, Keio <http://www.keio.ac.jp/>, Beihang 
+<http://ev.buaa.edu.cn/>) Usage policies apply <>. 

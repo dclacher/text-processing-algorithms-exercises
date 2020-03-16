@@ -1,0 +1,641 @@
+HTML Imports  <> 
+HTML Imports
+
+W3C Working Draft 11 March 2014
+  This version
+http://www.w3.org/TR/2014/WD-html-imports-20140311/ 
+<http://www.w3.org/TR/2014/WD-html-imports-20140311/>
+  Latest version
+http://www.w3.org/TR/html-imports/ <http://www.w3.org/TR/html-imports/>
+  Previous version
+http://www.w3.org/TR/2013/WD-html-imports-20130514/ 
+<http://www.w3.org/TR/2013/WD-html-imports-20130514/>
+  Revision history
+https://github.com/w3c/webcomponents/commits/gh-pages/spec/imports/ 
+<https://github.com/w3c/webcomponents/commits/gh-pages/spec/imports/>
+  Participate
+Discuss on public-webapps@w3.org 
+<http://lists.w3.org/Archives/Public/public-webapps/> (Web Applications Working 
+Group <http://www.w3.org/2008/webapps/>)
+File bugs 
+<https://www.w3.org/Bugs/Public/enter_bug.cgi?comment=&blocked=20683&short_desc=%5Bimports%5D%3A%20&product=WebAppsWG&import=import%20Model>
+ (w3.org'sBugzilla <https://www.w3.org/Bugs/Public/>)
+  Editor
+Dimitri Glazkov, Google, <dglazkov@chromium.org <mailto:dglazkov@chromium.org>>
+Hajime Morrita, Google, <morrita@chromium.org <mailto:morrita@chromium.org>>
+
+Copyright <http://www.w3.org/Consortium/Legal/ipr-notice#Copyright> © 2014 W3C 
+<http://www.w3.org/>® (MIT <http://www.csail.mit.edu/>, ERCIM 
+<http://www.ercim.eu/>, Keio <http://www.keio.ac.jp/>, Beihang 
+<http://ev.buaa.edu.cn/>), All Rights Reserved. W3C liability 
+<http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer>, trademark 
+<http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks> and document use 
+<http://www.w3.org/Consortium/Legal/copyright-documents> rules apply.
+
+Abstract
+
+HTML Imports are a way to include and reuse HTML documents in other HTML 
+documents.
+
+Status of This Document
+
+This section describes the status of this document at the time of its 
+publication. Other documents may supersede this document. A list of currentW3C 
+publications and the latest revision of this technical report can be found in 
+theW3C technical reports index <http://www.w3.org/TR/> at http://www.w3.org/TR/.
+
+This document was published by the Web Applications Working Group 
+<http://www.w3.org/2008/webapps/> as an Working Draft. If you wish to make 
+comments regarding this document, please send them topublic-webapps@w3.org 
+<mailto:public-webapps@w3.org> (subscribe 
+<mailto:public-webapps-request@w3.org?subject=subscribe>, archives 
+<http://lists.w3.org/Archives/Public/public-webapps/>) with a Subject: prefix of
+[html-imports]. All feedback is welcome.
+
+Publication as a Working Draft does not imply endorsement by the W3C 
+Membership. This is a draft document and may be updated, replaced or obsoleted 
+by other documents at any time. It is inappropriate to cite this document as 
+other than work in progress.
+
+This document was produced by a group operating under the 5 February 2004 W3C 
+Patent Policy <http://www.w3.org/Consortium/Patent-Policy-20040205/>. W3C 
+maintains apublic list of any patent disclosures 
+<http://www.w3.org/2004/01/pp-impl/42538/status> made in connection with the 
+deliverables of the group; that page also includes instructions for disclosing 
+a patent. An individual who has actual knowledge of a patent which the 
+individual believes containsEssential Claim(s) 
+<http://www.w3.org/Consortium/Patent-Policy-20040205/#def-essential> must 
+disclose the information in accordance withsection 6 of the W3C Patent Policy 
+<http://www.w3.org/Consortium/Patent-Policy-20040205/#sec-Disclosure>.
+
+Table of Contents
+
+ * About this Document <> 
+ * Dependencies <> 
+ * Terminology <> 
+ * Link Type "import" <> 
+ * Extensions to HTMLLinkElement interface <> 
+ * Loading Imports <> 
+ * Import Dependent <> 
+ * Requesting Import <> 
+ * Fetching Import <> 
+ * Imports and Content Security Policy <> 
+ * Parsing Imports <> 
+ * Additions to Prepare A Script Algorithm <> 
+ * Additions to Tree Construction Algorithm <> 
+ * Additions to Parsing XHTML Documents <> 
+ * Additions to document.write() method <> 
+ * Scripting in Imports <> 
+ * Additions to Script Enabling Criteria <> 
+ * Additions to document.currentScript <> 
+ * Style processing with Imports <> 
+ * Events in Imports <> 
+ * Additions to Event Handlers <> 
+ * Acknowledgements <> 
+About this Document
+
+All diagrams, examples, notes, are non-normative, as well as sections 
+explicitly marked as non-normative. Everything else in this specification is 
+normative.
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", 
+"SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in the normative parts of 
+this document are to be interpreted as described inRFC2119 
+<http://dev.w3.org/2006/xbl2/#refsRFC2119>. For readability, these words do not 
+appear in all uppercase letters in this specification.
+
+Any point, at which a conforming UA must make decisions about the state or 
+reaction to the state of the conceptual model, is captured asalgorithm 
+<http://en.wikipedia.org/wiki/Algorithm>. The algorithms are defined in terms 
+of processing equivalence. Theprocessing equivalence is a constraint imposed on 
+the algorithm implementors, requiring the output of the both UA-implemented and 
+the specified algorithm to be exactly the same for all inputs.
+
+Dependencies
+
+This document relies on the following specifications:
+
+ * DOM4 (DOM Core) <http://dom.spec.whatwg.org/> 
+ * HTML <http://www.whatwg.org/specs/web-apps/current-work/multipage/> 
+ * DOM Parsing and Serialization <http://domparsing.spec.whatwg.org/> 
+ * ECMAScript Language Specification 
+<http://ecma-international.org/ecma-262/5.1/> 
+ * URL <http://url.spec.whatwg.org/> 
+Terminology
+
+HTML Imports, or just imports from here on, are HTML documents 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/syntax.html> that 
+arelinked 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#the-link-element>
+ asexternal resources 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#external-resource-link>
+ from anotherHTML document 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/syntax.html>. The 
+document that links to animport <> is called an import referrer. For any given 
+import <>, an import referrer ancestor is its import referrer <> or any import 
+referrer ancestor <> of its import referrer <>. 
+
+An import referrer <> which has its own browsing context 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/browsers.html#browsing-context>
+ is called amaster document. Each import <> is associated with one master 
+document <>: if the referrer <> of the import <> is a master document <>, it is 
+themaster document <> of the import <>. Otherwise, the master document <> of the
+import referrer <> is the master document <> of the import <>.
+ Imported documents share its defaultView with the master document. (See Bug 
+23170 <https://www.w3.org/Bugs/Public/show_bug.cgi?id=23170> and Bug 22305 
+<https://www.w3.org/Bugs/Public/show_bug.cgi?id=22305>.) 
+The URL <http://dom.spec.whatwg.org/#concept-document-url> of an import <> is 
+called theimport location.
+
+In the import referrer <>, an import <> is represented as a Document 
+<http://dom.spec.whatwg.org/#interface-document>, called the imported document. 
+Theimported documents <> don't have browsing context 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/browsers.html#browsing-context>
+.
+
+The set of all imports <> associated with the master document <> forms an 
+import map of the master document <>. The maps stores imports <> as its items 
+with theirimport locations <> as keys. The import map is empty at beginning. 
+New items are added to the map asimport fetching algorithm <> specifies.
+
+Link Type "import"
+
+To enable declaring imports <> in HTML, a new link type is added to HTML link 
+types 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#linkTypes>
+:
+
+The import <> keyword may be used with link 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#the-link-element>
+ elements. This keyword creates anexternal resource link 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#external-resource-link>
+ to animport <>.
+
+The default type for resources given by the import <> keyword is text/html.
+
+The link 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#the-link-element>
+ element may have anasync attribute. The async <> attribute is a boolean 
+attribute 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/common-microsyntaxes.html#boolean-attributes>
+.
+
+The appropriate time to obtain 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#concept-link-obtain>
+ the resource is when theexternal resource link 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#external-resource-link>
+ is created or when its element isinserted into a document 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/infrastructure.html#insert-an-element-into-a-document>
+, whichever happens last.
+
+The following document has one import, located at /imports/heart.html:
+ <!DOCTYPE html> <html lang="en-US"> <head> <title>Human Being</title> <link 
+rel="import" href="/imports/heart.html"> </head> <body> <p>What is a body 
+without a heart?</p> </body> </html> 
+Extensions to HTMLLinkElement Interface
+ partial interface LinkImport { readonly attribute Document 
+<http://dom.spec.whatwg.org/#interface-document>? import <>; }; HTMLLinkElement 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#htmllinkelement>
+ implementsLinkImport <>; 
+On getting, the import attribute must return null, if:
+
+ * The link 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#the-link-element>
+ does notrepresent 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#represents>
+ animport <> 
+ * the user agent does not support imports <> 
+ * the link 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#the-link-element>
+ element is notin a Document 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/infrastructure.html#in-a-document>
+Otherwise, the attribute must return the imported document <> for the import <>
+, represented by thelink 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#the-link-element>
+ element.
+
+The same object must be returned each time.
+
+Here's how one could access the imported document, mentioned in the previous 
+example:
+ var link = document.querySelector('link[rel=import]'); var heart = 
+link.import; // Access DOM of the document in /imports/heart.html var pulse = 
+heart.querySelector('div.pulse'); 
+An import <> in the context of the Document 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/dom.html#document> 
+of anHTML parser 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/parsing.html#html-parser>
+ orXML Parser 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/the-xhtml-syntax.html#xml-parser>
+ is said to bean import that is blocking scripts if the element 
+<http://dom.spec.whatwg.org/#concept-element> was created by that Document 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/dom.html#document>
+'s parser, or and theelement <http://dom.spec.whatwg.org/#concept-element> is a 
+link 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#the-link-element>
+ of typeimport <> when the element <http://dom.spec.whatwg.org/#concept-element>
+ was created by the parser, and thelink 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#the-link-element>
+ is notmarked as async <>, and the the import is yet to be completely loaded 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/the-end.html#completely-loaded>
+, and, the last time theevent loop 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/webappapis.html#event-loop>
+ has reached step 1, theelement <http://dom.spec.whatwg.org/#concept-element> 
+wasin that Document 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/infrastructure.html#in-a-document>
+, and the user agent hasn't given up on thatimport <> yet. A user agent may 
+give up on animport <> at any time.
+
+ Giving up an import before it loads, even if the import eventually does still 
+load, means that the script might end up operating with incorrect information. 
+For example, if an import registers a custom element and a script relies on the 
+availability of this element, the script will find that this element is 
+unavailable if the user agent gives up early. Implementors have to balance the 
+likelihood of a script using incorrect information with the performance impact 
+of doing nothing while waiting for a slow network request to finish.
+
+A Document 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/dom.html#document> 
+has an import that is blocking scripts if there is an import that is blocking 
+scripts <> in the Document 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/dom.html#document>
+'simport dependent <>. A Document 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/dom.html#document> 
+has no import that is blocking scripts if it does not have an import that is 
+blocking scripts <> as defined in the previous paragraph.
+
+The sate of "has an import that is blocking scripts <>" can change each time 
+an existing import is completely loaded or new import loading is started. HTML 
+parser has changes to unblock it for each of such timings.
+
+Loading Imports
+
+Import Dependent
+
+Each document has an import link list, each of whose item is consist of link, 
+thelink 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#the-link-element>
+ element andlocation, a URL. Also, the item is optionally marked as cycle. The 
+list is empty at beginning and the item is added asimport request <> altorighm 
+specifies.
+
+An imported document <> has zero or more import ancestors. The import ancestor 
+<> is a document. If the import link list <> of document A contains an non-cycle
+ <> item whose location <> points document B, A is a import ancestor <> of B. B 
+is also called theimport parent of the Document 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/dom.html#document>
+. Theimport ancestor <> is transitive: If document C is a import ancestor <> of 
+documentB and document B is a import ancestor <> of document A, C is a import 
+ancestor <> of document A.
+
+An imported document <> also has one or more import predecessor. The import 
+predecessor <> is a document. If the URL of document A is located before the 
+URL of documentB in the import link list <> of B's import parent <>, A is 
+import predecessor <> of B. The import predecessor <> is transitive. If document
+A is import predecessor <> of document B and B is redecessor of document C, A is
+import predecessor <> of C.
+
+The Document 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/dom.html#document> 
+that is in eitherimport ancestors <> or import predecessors <> of document A, 
+or is linked from non-cycle <> item of A's import link list <>, is the import 
+dependent of A.
+
+The import link list <> and the import dependent <> constrains the order of 
+script execution in imports. It is intend to give a deterministic order of 
+script execution which is defined by the order oflink 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#the-link-element>
+ element in each import.
+
+The linking structure of import link lists <> forms a directed asyclic graph 
+(DAG). Each node of the DAG is a document and its edge is alink <>. It cannot 
+be a tree because more than one link can point same import. Any cycle is marked 
+by theimport request <> algorithm and excluded from dependency calculation. The 
+edges of each node is ordered in terms ofimport link list <>. The import 
+predecessors <> selection is aware of the order.
+ An example of import link lists. 
+ In the figure, 
+
+ * The document A has an import link list <> which contains a link to B and 
+another link toC. 
+ * The document D has a set of import ancestors <> that are A, B and c. 
+ * As B is a import ancestor <> of D, one of D's list item that points B is 
+marked ascycle <>. 
+ * The import predecessors <> of E are B and D, its import ancestors <> are A 
+andC and its import link list <> is empty. Thus its import dependents <> are A, 
+B, C and D. 
+ * The document D has two import parents <> which are B and C. 
+The difference between the import referrer <> and the import parent <> is that 
+import referrer <> reflects the state of the node tree 
+<http://www.w3.org/TR/dom/#node-tree> and that the import parent <> is built by 
+the algorithm described in this document.
+
+Requesting Import
+
+When user agents attempt to obtain <> a linked import, they must also run the 
+import request algorithm, which is equivalent <> to running these steps:
+  Input
+LINK, the link 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#the-link-element>
+ element that creates anexternal resource link 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#external-resource-link>
+ to the import.
+LOCATION, the URL <http://dom.spec.whatwg.org/#concept-document-url> of the 
+linked resource.
+
+ * If the async <> attribute of LINK is true, mark LINK as async. 
+ * Let DOCUMENT be a document of LINK. 
+ * Let LIST be an import link list <> of DOCUMENT. 
+ * Let ITEM be LINK and LOCATION: 
+ * 
+ * If there is a import ancestor <> of DOCUMENT whose URL is same as LOCATION, 
+MarkITEM as cycle <>. 
+ * Add ITEM at the end of LIST. 
+Fetching Import
+
+All imports <> linked from documents that is the master document <> or the one 
+in theimport map <> must be loaded using potentially CORS-enabled fetch 
+<http://fetch.spec.whatwg.org/#concept-legacy-potentially-cors-enabled-fetch> 
+withmode set to "Anonymous 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/fetching-resources.html#attr-crossorigin-anonymous>
+".
+
+When an import <> is fetched <http://fetch.spec.whatwg.org/#concept-fetch>, 
+the user agentmust run the import fetching algorithm, which must be equivalent 
+<> to running these steps:
+  Input
+LINK, a link 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#the-link-element>
+ element which makes theexternal resource link 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#external-resource-link>
+ to the import.
+LOCATION, the import location <>
+  Output
+IMPORT, the imported document <>.
+
+ * If LOCATION is already in the import map <>: 
+ * 
+ * Let IMPORT be the imported document <> for LOCATION and stop. 
+ * Fetch a resource <http://fetch.spec.whatwg.org/#concept-fetch> from LOCATION
+, withIMPORT as overnride referrer source and block cookies flag set: 
+ * 
+ * If fetched response type 
+<http://fetch.spec.whatwg.org/#concept-response-type> is error: 
+ * 
+ * Add LOCATION and null to the import map <> and stop. 
+ * Let IMPORT be a new Document <http://dom.spec.whatwg.org/#document>, the 
+document's address 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/dom.html#the-document's-address>
+ of which isLOCATION 
+ * Set IMPORT no quirks mode 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/infrastructure.html#no-quirks-mode>
+. 
+ * Let PARSER be a new HTML parser 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/parsing.html#html-parser>
+, associated withIMPORT 
+ * Input a DOCTYPE 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/syntax.html#the-doctype>
+ token toPARSER's tree construction stage 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/tree-construction.html#tree-construction>
+ with name "html" andforce-quirks flag turned off. 
+See Bug 24349 <https://www.w3.org/Bugs/Public/show_bug.cgi?id=24349>.
+
+ * Add LOCATION and IMPORT to the import map <>. 
+ * For each task 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/webappapis.html#concept-task>
+ that thenetworking task source 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/webappapis.html#concept-task>
+ places on thetask queue 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/webappapis.html#task-queue>
+ while fetching: 
+ * Fill PARSER's input byte stream 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/parsing.html#the-input-byte-stream>
+ with the fetched bytes 
+ * Let PARSER process the input byte stream 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/parsing.html#the-input-byte-stream>
+ withutf-8 <http://encoding.spec.whatwg.org/#utf-8> as a known definite encoding
+ 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/parsing.html#a-known-definite-encoding>
+ * When no more bytes are available: 
+ * Queue a task 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/webappapis.html#queue-a-task>
+ from thenetworking task source 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/webappapis.html#networking-task-source>
+ forPARSER to process implied EOF character  All of loaded imports and imports 
+under loading are in theimport link list <>, thus every import <> which is 
+linked from imports in the list will also be loaded using theimport fetching <> 
+algorithm, withLOCATION be the import location <> of the import. 
+ The loading attempt must be considered successful if IMPORT is not null on 
+the algorithm completion, and failed otherwise.
+ The link 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#the-link-element>
+ element fires a simple event calledload for successful loading attempt. For 
+failed attempt, it fires a simple event namederror. 
+Imports and Content Security Policy
+
+Content Security Policy <http://www.w3.org/TR/2014/WD-CSP11-20140211/> must 
+restrict import loading through thescript-src 
+<http://www.w3.org/TR/2014/WD-CSP11-20140211/#script-src> directive. 
+
+ Each import must be restricted by the Content Security Policy of the master 
+document <>. For example, if Content Security Header Field 
+<http://www.w3.org/TR/2014/WD-CSP11-20140211/#content-security-policy-header-field>
+ is sent to an import, the user agent mustenforce 
+<http://www.w3.org/TR/2014/WD-CSP11-20140211/#enforce> the policy of the master 
+document <> to the imported document. 
+
+Parsing Imports
+
+Parsing behaviour of imports <> is defined as a set of changes to the HTML 
+Parsing 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/parsing.html#parsing>
+.
+
+Additions to Prepare A Script Algorithm
+
+In step 15 of prepare a script 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/scripting-1.html#prepare-a-script>
+ algorithm, modify the last part of condition which begins withIf element does 
+not have asrc attribute to read:
+
+... and the Document 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/dom.html#document> 
+of theHTML parser 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/parsing.html#html-parser>
+ orXML parser 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/the-xhtml-syntax.html#xml-parser>
+ that created thescript 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/scripting-1.html#the-script-element>
+ elementhas a style sheet that is blocking scripts 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#has-a-style-sheet-that-is-blocking-scripts>
+ orhas an import that is blocking scripts <>
+
+Additions to Tree Construction Algorithm
+
+In sub-condition named Otherwise of condition An end tag whose name is "script"
+ in"text" insertion mode 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/tree-construction.html#parsing-main-incdata>
+, modify step 3 to read:
+
+ * If the parser's Document 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/dom.html#document> 
+has a style sheet that is blocking scripts 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#has-a-style-sheet-that-is-blocking-scripts>
+ orhas an import that is blocking scripts <> or the script's "ready to be 
+parser-executed" 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/scripting-1.html#ready-to-be-parser-executed>
+ flag is not set:spin the event loop 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/webappapis.html#spin-the-event-loop>
+ until the parser'sDocument 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/dom.html#document> 
+has no style sheet that is blocking scripts 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#has-no-style-sheet-that-is-blocking-scripts>
+ andhas no import that is blocking scripts <> and the script's "ready to be 
+parser-executed" 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/scripting-1.html#ready-to-be-parser-executed>
+ flag is set. 
+Modify sub-step 1 of step 3 of the end 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/the-end.html#the-end>
+ to read:
+
+ * 
+Spin the event loop 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/webappapis.html#spin-the-event-loop>
+ until the firstscript 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/scripting-1.html#the-script-element>
+ in thelist of scripts that will execute when the Document has finished parsing 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/scripting-1.html#list-of-scripts-that-will-execute-when-the-document-has-finished-parsing>
+ has its"ready to be parser-executed" 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/scripting-1.html#ready-to-be-parser-executed>
+ flag setand the parser's Document 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/dom.html#document> 
+has no style sheet that is blocking scripts 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#has-no-style-sheet-that-is-blocking-scripts>
+and has has no import that is blocking scripts <>.
+
+All import dependents <> must be loaded before DOMContentLoaded 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/section-index.html#event-domcontentloaded>
+ is fired. SeeBug 23526 <https://www.w3.org/Bugs/Public/show_bug.cgi?id=23526>.
+
+Additions to Parsing XHTML Documents
+
+Modify step 3 of steps that run following preparing 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/scripting-1.html#prepare-a-script>
+ thescript 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/scripting-1.html#the-script-element>
+ element to read:
+
+ * 
+Spin the event loop 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/webappapis.html#spin-the-event-loop>
+ until the parser'sDocument 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/dom.html#document> 
+has no style sheet that is blocking scripts 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#has-no-style-sheet-that-is-blocking-scripts>
+ andhas no import that is blocking scripts <> and the pending parsing-blocking 
+script 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/scripting-1.html#pending-parsing-blocking-script>
+'s"ready to be parser-executed" 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/scripting-1.html#ready-to-be-parser-executed>
+ flag is set.
+
+Additions to document.write() method
+
+Insert following step between step 2 and step 3 of document.write() method 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/webappapis.html#document.write()>
+:
+
+ * If document.currentScript 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/dom.html#dom-document-currentscript>
+ points the element that isn't owned by theactive document 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/browsers.html#active-document>
+, then abort these steps. 
+See Bug 24042 <https://www.w3.org/Bugs/Public/show_bug.cgi?id=24042>.
+
+Scripting in Imports
+
+Additions to Script Enabling Criteria
+
+Add following condition to the list of Enabling and disabling scripting 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/webappapis.html#enabling-and-disabling-scripting>
+ criteria:
+
+ * Scripting is enabled for a node 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/infrastructure.html#node>
+ if theDocument 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/dom.html#document> 
+object of the node is in theimport map <>. 
+Additions to document.currentScript
+
+ Modify the definition of document.currentScript 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/dom.html#dom-document-currentscript>
+ as follows:
+ The currentScript attribute, on getting, must return the value to which it 
+was most recently initialized in the document or theimport map <> of the 
+document. When the Document is created, thecurrentScript must be initialized to 
+null. If the Document is animported document <>, its currentScript is always 
+null. 
+Style processing with Imports
+
+The contents of the style 
+<http://www.whatwg.org/specs/web-apps/current-work/#the-style-element> elements 
+and the external resources of thelink 
+<http://www.whatwg.org/specs/web-apps/current-work/#the-link-element> elements 
+inimports <> must be considered as input sources of the style processing model 
+<http://www.w3.org/TR/CSS21/intro.html#processing-model> of the master document 
+<>.
+
+Between declarations from different documents, the document order in terms of 
+order of appearance <http://www.w3.org/TR/css3-cascade/#cascade-order> is 
+defined based on the document order of thelink 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#the-link-element>
+ elements of theirimport referrer ancestors <> which are in the same document. 
+If thre are more than one of such documents, the comparison result in the first 
+document, in the document order, wins.
+
+See Bug 24756 <https://www.w3.org/Bugs/Public/show_bug.cgi?id=24756>.
+
+Events in Imports
+
+Events in imports <> is defined as a set of changes to the HTML Events 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/webappapis.html#events>
+.
+
+Additions to Event Handlers
+
+ Modify the event handler content attribute 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/webappapis.html#event-handler-content-attributes>
+'s script creation criteria by expanding the first paragraph:
+
+When an event handler content attribute is set, if the element is owned by a 
+Document 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/dom.html#document> 
+that is in abrowsing context 
+<http://www.whatwg.org/specs/web-apps/current-work/multipage/browsers.html#browsing-context>
+ or in animport map <>, ...
+
+Acknowledgements
+
+David Hyatt developed XBL 1.0 <http://dev.w3.org/2006/xbl2/>, and Ian Hickson 
+co-wroteXBL 2.0 <http://dev.w3.org/2006/xbl2/>. These documents provided 
+tremendous insight into the problem of behavior attachment and greatly 
+influenced this specification.
+
+Alex Russell and his considerable forethought triggered a new wave of 
+enthusiasm around the subject of behavior attachment and how it can be applied 
+practically on the Web.
+
+Dominic Cooney and Roland Steiner worked tirelessly to scope the problem 
+within the confines of the Web platform and provided a solid foundation for 
+this document.
+
+The editor would also like to thank Alex Komoroske, Angelina Fabbro, Anne van 
+Kesteren, Boris Zbarsky, Brian Kardell, Daniel Buchner, Edward O'Connor, Eric 
+Bidelman, Erik Arvidsson, Elliott Sprehn, Gabor Krizsanits, Hayato Ito, James 
+Simonsen, Jonas Sicking, Ken Shirriff, Neel Goyal, Olli Pettay, Rafael Weinstein
+,Scott Miles, Steve Orvell, Tab Atkins, William Chan, and William Chen for 
+their comments and contributions to this specification.
+
+This list is too short. There's a lot of work left to do. Please contribute by 
+reviewing and filing bugs—and don't forget to ask the editor to add your name 
+into this section.

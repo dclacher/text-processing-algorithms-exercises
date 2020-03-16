@@ -18,7 +18,7 @@ public class TriesMain {
         // StringTokenizer, Jsoup or a similar API to extract the words from the file.
 
         // Read the file
-        String text = Files.readString(Paths.get("./Protein.txt"));
+        String text = Files.readString(Paths.get("./static/Protein.txt"));
 
         // Use StringTokenizer to extract the content of the text into a list
         List<String> tokens = Collections.list(new StringTokenizer(text, ",.-_() \t\n\r\f")).stream()

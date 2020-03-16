@@ -12,7 +12,7 @@ public class PatternMatchingMain {
     public static void main(String[] args) throws IOException {
 
         // 1.a. Retrieve the text file
-        String text = Files.readString(Paths.get("./Hard disk.txt"));
+        String text = Files.readString(Paths.get("./static/Hard disk.txt"));
 
         // 1.b. Find all occurrences of patterns "hard", "disk", "hard disk", "hard drive", "hard dist" and "xltpru",
         // and show the offsets.

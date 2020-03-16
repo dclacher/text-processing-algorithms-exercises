@@ -1,0 +1,167 @@
+About W3C Standards 
+ <> W3C 
+
+ * Standards <> 
+ * Participate <> 
+ * Membership <> 
+ * About W3C <> 
+ * 
+Site Navigation
+
+Standards  <>
+
+ * Web Design and Applications <> 
+ * Web Architecture <> 
+ * Semantic Web <> 
+ * XML Technology <> 
+ * Web of Services <> 
+ * Web of Devices <> 
+ * Browsers and Authoring Tools <> 
+ * All Standards and Drafts <> 
+ * About W3C Standards <> 
+
+ * Skip <> 
+ * W3C <> » 
+ * Standards <> » 
+ * About W3C Standards 
+About W3C Standards
+
+ * On this page → 
+ * intro to standards <> • 
+ * value of creating standards at w3c <> • 
+ * business case for standards <> • 
+ * introduction to standards-based design <> 
+Most W3C work revolves around the standardization of Web technologies. To 
+accomplish this work, W3C followsprocesses <> that promote the development of 
+high-quality standards based on the consensus of the community. W3C processes 
+promote fairness, responsiveness, and progress, all facets of theW3C mission <>.
+
+Intro to Standards
+
+The W3C technical report development process <> is the set of steps and 
+requirements followed by W3C Working Groups to standardize Web technology. 
+Through this process, W3C seeks to maximize consensus about the content of a 
+technical report, to ensure high technical and editorial quality, to promote 
+consistency amongspecifications <>, and to earn endorsement by W3C and the 
+broader community. Learn more in theintroduction to the W3C Process <>.
+
+Input to the W3C standards process may come from a variety of places, 
+including:
+
+ * W3C Workshops <> 
+ * Incubator Groups <> 
+ * Member Submissions <> 
+ * Team Submissions <> 
+Value of Creating Standards at W3C
+
+W3C continues to evolve to provide the community a productive environment for 
+creating Web standards. W3C standards:
+
+ * are created following a consensus-based decision process; 
+ * consider aspects of accessibility, privacy, security, and 
+internationalization; 
+ * reflect the views of diverse industries and global stakeholders; 
+ * balance speed, fairness, public accountability, and quality; 
+ * benefit from Royalty-Free patent licensing commitments 
+<http://www.w3.org/Consortium/Patent/> from participants; 
+ * are stable (and W3C seeks to ensure their persistence at the published URI);
+ * benefit from wide review from groups inside and outside W3C; 
+ * are downloadable at no cost; 
+ * are maintained in a predictable fashion; 
+ * are strengthened through interoperability testing; 
+Business Case for Standards
+
+Here is a selection of community viewpoints on the value of Web Standards. 
+Please let us know if you know of other useful resources.
+
+ * An Economic Basis for Open Standards 
+<http://www.intgovforum.org/Substantive_1st_IGF/openstandards-IGF.pdf> 
+ * ISO Studies on benefits of standards 
+<http://www.iso.org/iso/benefits_repository.htm?type=EBS-MS> including 
+Assessing Economic Benefits of Consensus-Based Standards - The ISO Methodology 
+(2010) 
+<http://www.iso.org/iso/home/standards/benefitsofstandards/benefits-detail.htm?emid=6>
+ * Long live the web 
+<http://www.scientificamerican.com/article.cfm?id=long-live-the-web&print=true> 
+(Scientific American, Nov 2010) 
+ * The Economic Importance of Standards (slides) 
+<http://www.w3.org/2005/Talks/0518-stds-tbl/#[2]>, Tim Berners-Lee 
+ * A Standards Quality Case Study: W3C 
+<http://lehors.wordpress.com/2008/04/25/a-standards-quality-case-study-w3c/>, 
+Arnaud Le Hors
+ *  Business Case for Open Standards 
+<http://www.openstandards.net/viewOSnet1C.jsp?showModuleName=businessCaseForOpenStandards>
+, Erik Silman
+ *  The Business Value of Web Standards 
+<http://www.adaptivepath.com/ideas/essays/archives/000266.php>, Jeffrey Veen
+ * What are the advances of using standards? 
+<http://www.webstandards.org/learn/faq/#p3>, Web Standards Project 
+ * Business Case for Web Standards Wiki 
+<http://icant.co.uk/webstandardsforbusiness/> 
+ * Developing a Web Accessibility Business Case for Your Organization: Overview
+ <> , W3C Web Accessibility Initiative
+ *  Making the business case for web standards 
+<http://www.webaccessstrategies.com/blog/id/making-the-business-case-for-web-standards/>
+, Web Access Strategies
+ * CSS Talking Points: Selling Clients on Web Standards 
+<http://www.alistapart.com/articles/csstalking/>, Greg Kise 
+ * Asia-Pacific Economic Cooperation (APEC)'s Standardization: Fundamentals, 
+Impact, and Business Strategy 
+<http://publications.apec.org/publication-detail.php?pub_id=1032> 
+ * Standards <Meta> Library <http://www.consortiuminfo.org/metalibrary/> 
+Introduction to Standards-Based Design
+
+Below are listed some resources that discuss standards-based Web design.
+
+ * W3C's HTML validator <http://validator.w3.org/>, which links to other 
+validators (CSS, RSS, Atom, MobileOK) and tools (to find broken links, etc.) 
+ * Web Site Quality <http://www.w3.org/QA/Library/#websitequality>, a list of 
+articles from the W3C Quality Assurance Activity 
+ * Buy standards compliant Web sites <>, W3C Quality Assurance Activity 
+ * Introducing Web accessibility <http://www.w3.org/WAI/gettingstarted/> and 
+evaluating accessibility <>, W3C Web Accessibility Initiative <> 
+ * Internationalization techniques 
+<http://www.w3.org/International/technique-index>, W3C Internationalization 
+Activity <> 
+ * Reources from the Open Web Education Alliance (OWEA) 
+<http://www.webstandards.org/learn/faq/>, including curricula 
+<http://interact.webstandards.org/> 
+ * What are web standards and why should I use them? 
+<http://www.webstandards.org/learn/faq/>, Web Standards Project FAQ 
+ * A Standardista’s Alphabet <http://www.alistapart.com/articles/alphabet/>, 
+Jack Pickard for A List Apart 
+Quick Links
+
+ * Working Groups <> 
+ * Standards FAQ <> 
+ * Translations <http://www.w3.org/Consortium/Translation/> 
+ * Glossary <> 
+ * Bibliographies <> 
+ * Copyright FAQ <> 
+Related
+
+ * Incubator Reports <> 
+ * Member Submissions <> 
+ * Team Submissions <> 
+Footer Navigation
+
+Navigation
+
+ * Home <> 
+ * Standards <> 
+ * Participate <> 
+ * Membership <> 
+ * About W3C <> 
+Contact W3C
+
+ * Contact <> 
+ * Help and FAQ <> 
+ * Sponsor / Donate <> 
+ * Site Map <> 
+ * Feedback <http://lists.w3.org/Archives/Public/site-comments/> 
+W3C Updates
+
+ *  <http://twitter.com/W3C> 
+Copyright © 2012 W3C ® ( MIT  <http://www.csail.mit.edu/>,  ERCIM  
+<http://www.ercim.org/>, Keio <http://www.keio.ac.jp/>, Beihang 
+<http://ev.buaa.edu.cn/>) Usage policies apply <>.

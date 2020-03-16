@@ -1,0 +1,314 @@
+Accessibility - W3C 
+ <> W3C
+
+ * Standards <> 
+ * Participate <> 
+ * Membership <> 
+ * About W3C <> 
+ * 
+Site Navigation
+
+Web Design and Applications  <>
+
+ * HTML & CSS <> 
+ * JavaScript Web APIs <> 
+ * Graphics <> 
+ * Audio and Video <> 
+ * Accessibility <> 
+ * Internationalization <> 
+ * Mobile Web <> 
+ * Privacy <> 
+ * Math on the Web <> 
+
+ * Skip <> 
+ * W3C <> » 
+ * Standards <> » 
+ * Web Design and Applications <> » 
+ * Accessibility 
+Accessibility
+
+ * On this page → 
+ * why <> • 
+ * what <> • 
+ * how <> • 
+ * wai <> • 
+ * learn more <> • 
+ * recent press releases <> • 
+ * current status of specifications <> and groups <> 
+The power of the Web is in its universality.
+ Access by everyone regardless of disability is an essential aspect.
+Tim Berners-Lee, W3C Director and inventor of the World Wide Web
+
+The Web is fundamentally designed to work for all people, whatever their 
+hardware, software, language, culture, location, or physical or mental ability. 
+When the Web meets this goal, it is accessible to people with a diverse range 
+of hearing, movement, sight, and cognitive ability.
+
+Thus the impact of disability is radically changed on the Web because the Web 
+removes barriers to communication and interaction that many people face in the 
+physical world. However, when websites, web technologies, or web tools are 
+badly designed, they can create barriers that exclude people from using the Web.
+
+The mission of the Web Accessibility Initiative (WAI) <> is to lead the Web to 
+its full potential to be accessible, enabling people with disabilities to 
+participate equally on the Web.
+
+See below for:
+
+ * why: the case for web accessibility <> 
+ * what: examples of web accessibility <> 
+ * how: make your website and web tools accessible <> 
+ * Web Accessibility Initiative (WAI) at W3C <> 
+ * learn more <> 
+ <>Why: The Case for Web Accessibility 
+
+It is essential that the Web be accessible in order to provide equal access 
+and equal opportunity to people with diverse abilities. Indeed, theUN 
+Convention on the Rights of Persons with Disabilities 
+<http://www.un.org/disabilities/default.asp?navid=12&pid=150> recognizes access 
+to information and communications technologies, including the Web, asa basic 
+human right. 
+
+Accessibility supports social inclusion for people with disabilities as well as
+others <http://www.w3.org/WAI/bcase/soc.html#groups>, such as older people 
+<http://www.w3.org/WAI/bcase/soc.html#older>, people in rural areas, and people 
+in developing countries.
+
+There is also a strong business case for accessibility. Accessibility overlaps 
+with other best practices such asmobile web design 
+<http://www.w3.org/WAI/mobile/>, device independence, multi-modal interaction, 
+usability,design for older users <http://www.w3.org/WAI/bcase/soc.html#older>, 
+andsearch engine optimization (SEO) <http://www.w3.org/WAI/bcase/fin.html#seo>. 
+Case studies show that accessible websites have better search results, reduced 
+maintenance costs, and increased audience reach, among other benefits.
+Developing a Web Accessibility Business Case for Your Organization <> details 
+the social, technical, financial, and legal benefits of web accessibility.
+
+What: Examples of Web Accessibility
+
+ Properly designed websites and web tools can be used by people with 
+disabilities <http://www.w3.org/WAI/intro/people-use-web.php>. However, 
+currently many sites and tools are developed with accessibility barriers that 
+make it difficult or impossible for some people to use them. Below are just a 
+few examples.
+
+Alternative Text for Images
+
+Alt text is the classic example. Images should include equivalent alternative 
+text <http://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv.html> in the 
+markup/code.
+
+If alt text isn't provided for images, the image information is inaccessible, 
+for example, to people who cannot see and use a screen reader that reads aloud 
+the information on a page, including the alt text for the visual image.
+
+When equivalent alt text is provided, the information is available to everyone 
+to people who are blind, as well as to people who turned off images on their 
+mobile phone to lower bandwidth charges, people in a rural area with low 
+bandwidth who turned off images to speed download, and others. It's also 
+available to technologies that cannot see the image, such as search engines.
+
+Keyboard Input
+
+Some people cannot use a mouse, including many older users with limited fine 
+motor control. An accessible website does not rely on the mouse; it providesall 
+functionality via a keyboard 
+<http://www.w3.org/TR/UNDERSTANDING-WCAG20/keyboard-operation.html>. Then 
+people with disabilities can useassistive technologies 
+<http://www.w3.org/WAI/users/involving#at> that mimic the keyboard, such as 
+speech input.
+
+Transcripts for Podcasts
+ <http://www.w3.org/WAI/highlights/200606wcag2interview.html> 
+Just as images aren't available to people who can't see, audio files aren't 
+available to people who can't hear. Providing a text transcript makes the audio 
+information accessible to people who are deaf or hard of hearing, as well as to 
+search engines and other technologies that can't hear.
+
+It's easy and relatively inexpensive for website developers to provide 
+transcripts for podcasts and audio files. There are alsotranscription services 
+<http://www.uiaccess.com/transcripts/transcript_services.html> that create text 
+transcripts in HTML format.
+
+ <>How: Make Your Website and Web Tools Accessible 
+
+Most of the basics of accessibility are even easier and less expensive than 
+providing transcripts. However, the proper techniques are poorly integrated 
+into some web tools, education, and development processes. If you are new to 
+accessibility, it takes some time and effort to learn the common issues and 
+solutions. A starting place is theIntroduction to Web Accessibility 
+<http://www.w3.org/WAI/intro/accessibility.php>. 
+
+Some accessibility barriers are more complicated to avoid and the solutions 
+take more development time and effort. W3C WAI provides extensive resources to 
+help, such asUnderstanding WCAG 2.0: A guide to understanding and implementing 
+Web Content Accessibility Guidelines 2.0 
+<http://www.w3.org/TR/UNDERSTANDING-WCAG20/>. 
+
+Using authoring tools that support accessibility 
+<http://www.w3.org/WAI/impl/software> makes it easier for website developers. 
+Browsers also play a role in accessibility.Essential Components of Web 
+Accessibility <http://www.w3.org/WAI/intro/components.php> explains the 
+relationships between the different components of web development and 
+interaction.
+
+Accessibility is essential for developers and organizations that want to 
+create high quality websites and web tools, and not exclude people from using 
+their products and services.
+
+ <>Web Accessibility Initiative (WAI) at W3C 
+
+The W3C Web Accessibility Initiative (WAI) <http://www.w3.org/WAI/> brings 
+together people from industry, disability organizations, government, and 
+research labs from around the world todevelop guidelines 
+<http://www.w3.org/WAI/intro/w3c-process.php> and resources 
+<http://www.w3.org/WAI/Resources/> to help make the Web accessible to people 
+with disabilities including auditory, cognitive, neurological, physical, 
+speech, and visual disabilities.
+
+WAI's coverage of web accessibility includes 'web content 
+<http://www.w3.org/WAI/intro/wcag.php>' (websites and web applications), 
+authoring tools <http://www.w3.org/WAI/intro/atag.php> (such as content 
+management systems (CMS) and blog software), browsers and other 'user agents 
+<http://www.w3.org/WAI/intro/uaag.php>', and W3C technical specifications 
+<http://www.w3.org/WAI/PF/>, including WAI-ARIA 
+<http://www.w3.org/WAI/intro/aria.php> for accessible rich Internet 
+applications.
+
+ We invite individuals and organizations to participate in WAI 
+<http://www.w3.org/WAI/participation> by volunteering to implement, promote, 
+and review guidelines; contributing to theWAI Interest Group 
+<http://www.w3.org/WAI/IG/>; and participating in Working Groups 
+<http://www.w3.org/WAI/groups.html>.
+
+
+Learn More
+
+WAI provides a wide range of resources on different aspects of web 
+accessibility standards, education, implementation, and policy, including:
+
+ * Introduction to Web Accessibility 
+<http://www.w3.org/WAI/intro/accessibility.php> 
+ * Essential Components of Web Accessibility 
+<http://www.w3.org/WAI/intro/components.php> 
+ * How People with Disabilities Use the Web 
+<http://www.w3.org/WAI/intro/people-use-web> 
+ * Improving the Accessibility of Your Web Site 
+<http://www.w3.org/WAI/impl/improving> 
+ * Managing Accessibility <http://www.w3.org/WAI/managing.html> 
+ * Evaluating Web Accessibility <http://www.w3.org/WAI/eval/> 
+ * Standards, guidelines, and techniques for making accessible 
+ * websites: Web Content Accessibility Guidelines (WCAG) 
+<http://www.w3.org/WAI/intro/wcag.php> 
+ * authoring tools: Authoring Tool Accessibility Guidelines (ATAG) 
+<http://www.w3.org/WAI/intro/atag.php> 
+ * browsers: User Agent Accessibility Guidelines (UAAG) 
+<http://www.w3.org/WAI/intro/uaag.php> 
+ * web applications: Accessible Rich Internet Applications (WAI-ARIA) 
+<http://www.w3.org/WAI/intro/aria.php> 
+ * Developing a Web Accessibility Business Case for Your Organization <> 
+ * WAI home page highlights <http://www.w3.org/WAI/> 
+ * and more WAI Resources <http://www.w3.org/WAI/Resources/> 
+Recent W3C Press Releases and Member Testimonials <> 
+
+ * 
+W3C's Accessible Rich Internet Applications (WAI-ARIA) 1.0 Expands 
+Accessibility of the Open Web Platform <https://www.w3.org/2014/03/aria.html.en>
+
+20 March 2014
+
+Recent Press
+  18 June 
+Knight Blog <http://www.knightfoundation.org/blogs/knightblog/> 
+ “The World Wide Web Consortium at 20: Moving the Web toward its ‘full 
+potential’”  
+<http://www.knightfoundation.org/blogs/knightblog/2014/6/18/world-wide-web-consortium-20-moving-web-toward-its-full-potential/>
+  31 March 
+IT World <http://www.itworld.com/> 
+ “Accessible technology professionals will soon be able to get certified”  
+<http://www.itworld.com/application-management/412009/accessible-technology-professionals-will-soon-be-able-get-certified>
+  26 March 
+Digital Journal <http://www.digitaljournal.com/> 
+ “The Apache Software Foundation Celebrates Document Freedom Day 2014”  
+<http://www.digitaljournal.com/pr/1812212> 
+  24 March 
+IT World <http://www.itworld.com/> 
+ “The W3C makes Accessible Rich Internet Applications a web standard”  
+<http://www.itworld.com/application-management/410963/w3c-makes-accessible-rich-internet-applications-web-standard>
+
+Current Status of Specifications
+
+Learn more about the current status of specifications related to: 
+
+ * Accessibility (All) <> 
+ * Web Content Accessibility Guidelines (WCAG) <> 
+ * Accessible Rich Internet Applications (WAI-ARIA) <> 
+ * User Agent Accessibility Guidelines (UAAG) <> 
+ * Authoring Tool Accessibility Guidelines (ATAG) <> 
+ * Evaluation and Report Language (EARL) <> 
+ * IndieUI <> 
+These W3C Groups <> are working on the related specifications: 
+
+ * Authoring Tool Accessibility Guidelines Working Group 
+<http://www.w3.org/WAI/AU/> 
+ * Education and Outreach Working Group <http://www.w3.org/WAI/EO/> 
+ * Evaluation and Repair Tools Working Group <http://www.w3.org/WAI/ER/> 
+ * Protocols and Formats Working Group <http://www.w3.org/WAI/PF/> 
+ * User Agent Accessibility Guidelines Working Group 
+<http://www.w3.org/WAI/UA/> 
+ * Web Content Accessibility Guidelines Working Group 
+<http://www.w3.org/WAI/GL/> 
+ * HTML Working Group <http://www.w3.org/html/wg/> 
+ * Independent User Interface (Indie UI) Working Group 
+<http://www.w3.org/WAI/IndieUI/> 
+ * Research and Development Working Group <http://www.w3.org/WAI/RD/> 
+Current Status
+
+ * Accessibility (All) <> 
+ * Web Content Accessibility Guidelines (WCAG) <> 
+ * Accessible Rich Internet Applications (WAI-ARIA) <> 
+ * User Agent Accessibility Guidelines (UAAG) <> 
+ * Authoring Tool Accessibility Guidelines (ATAG) <> 
+ * Evaluation and Report Language (EARL) <> 
+ * IndieUI <> 
+Use It
+
+ * How People with Disabilities Use the Web <http://www.w3.org/WAI/Resources/> 
+ * Improving the Accessibility of Your Web Site 
+<http://www.w3.org/WAI/impl/improving> 
+ * Managing Accessibility <http://www.w3.org/WAI/managing.html> 
+ * Evaluating Web Accessibility <http://www.w3.org/WAI/eval/> 
+ * More resources… <> 
+Logos
+
+ * WCAG 2 <http://www.w3.org/WAI/WCAG2-Conformance.html> 
+Acknowledgements
+
+Editors: Shawn Lawton Henry and Liam McGee.
+ Contributors: Shadi Abou-Zahra, Andrew Arch, Alan Chuter, Sylvie Duchateau, 
+Jack Welsh, William Loughborough, Catherine Roy, Sharron Rush, Yeliz Yesilada, 
+and otherparticipants <http://www.w3.org/WAI/EO/EOWG-members> of the Education 
+and Outreach Working Group (EOWG <http://www.w3.org/WAI/EO/>). 
+
+Footer Navigation
+
+Navigation
+
+ * Home <> 
+ * Standards <> 
+ * Participate <> 
+ * Membership <> 
+ * About W3C <> 
+Contact W3C
+
+ * Contact <> 
+ * Help and FAQ <> 
+ * Sponsor / Donate <> 
+ * Site Map <> 
+ * Feedback <http://lists.w3.org/Archives/Public/site-comments/> 
+W3C Updates
+
+ *  <http://twitter.com/W3C> 
+Copyright © 2013 W3C ® (MIT <http://www.csail.mit.edu/>, ERCIM 
+<http://www.ercim.eu/>, Keio <http://www.keio.ac.jp/>, Beihang 
+<http://ev.buaa.edu.cn/>) Usage policies apply <>. 

@@ -1,0 +1,209 @@
+HTML & CSS - W3C 
+ <> W3C 
+
+ * Standards <> 
+ * Participate <> 
+ * Membership <> 
+ * About W3C <> 
+ * 
+Site Navigation
+
+Web Design and Applications  <>
+
+ * HTML & CSS <> 
+ * JavaScript Web APIs <> 
+ * Graphics <> 
+ * Audio and Video <> 
+ * Accessibility <> 
+ * Internationalization <> 
+ * Mobile Web <> 
+ * Privacy <> 
+ * Math on the Web <> 
+
+ * Skip <> 
+ * W3C <> » 
+ * Standards <> » 
+ * Web Design and Applications <> » 
+ * HTML & CSS 
+HTML & CSS
+
+ * On this page → 
+ * what is html (and xhtml) <> • 
+ * what is css <> • 
+ * what is webfonts <> • 
+ * examples <> • 
+ * more info <> • 
+ * recent press releases <> • 
+ * current status of specifications <> and groups <> 
+HTML <> (the Hypertext Markup Language) and CSS <> (Cascading Style Sheets) 
+are two of the core technologies for building Web pages. HTML provides the
+structure of the page, CSS the (visual and aural) layout, for a variety of 
+devices. Along withgraphics <> and scripting <>, HTML and CSS are the basis of 
+building Web pages andWeb Applications. Learn more below about: 
+
+What is HTML?
+
+HTML <> is the language for describing the structure of Web pages. HTML gives 
+authors the means to:
+
+ *  Publish online documents with headings, text, tables, lists, photos, etc. 
+ *  Retrieve online information via hypertext links, at the click of a button. 
+ *  Design forms for conducting transactions with remote services, for use in 
+searching for information, making reservations, ordering products, etc. 
+ *  Include spread-sheets, video clips, sound clips, and other applications 
+directly in their documents. 
+ With HTML, authors describe the structure of pages using markup. The elements 
+of the language label pieces of content such as “paragraph,” “list,” “table,” 
+and so on.
+
+What is XHTML?
+
+ XHTML is a variant of HTML that uses the syntax of XML <>, the Extensible 
+Markup Language. XHTML has all the same elements (for paragraphs, etc.) as the 
+HTML variant, but the syntax is slightly different. Because XHTML is an XML 
+application, you can use other XML tools with it (such asXSLT, <> a language 
+for transforming XML content).
+
+What is CSS?
+
+CSS <> is the language for describing the presentation of Web pages, including 
+colors, layout, and fonts. It allows one to adapt the presentation to different 
+types of devices, such as large screens, small screens, or printers. CSS is 
+independent of HTML and can be used with any XML-based markup language. The 
+separation of HTML from CSS makes it easier to maintain sites, share style 
+sheets across pages, and tailor pages to different environments. This is 
+referred to as theseparation of structure (or: content) from presentation. 
+
+What is WebFonts?
+
+WebFonts is a technology that enables people to use fonts on demand over the 
+Web without requiring installation in the operating system. W3C has experience 
+in downloadable fonts through HTML, CSS2, and SVG. Until recently, downloadable 
+fonts have not been common on the Web due to the lack of an interoperable font 
+format. The WebFonts effort plans to address that through the creation of an 
+industry-supported, open font format for the Web (called "WOFF").
+
+Examples
+
+ The following very simple example of a portion of an HTML document 
+illustrates how to create a link within a paragraph. When rendered on the 
+screen (or by a speech synthesizer), the link text will be “final report”; when 
+somebody activates the link, the browser will retrieve the resource identified 
+by “http://www.example.com/report”:
+<p class="moreinfo">For more information see the <a 
+href="http://www.example.com/report">final report</a>.</p> 
+ The class attribute on the paragraph's start tag (“<p>”) can be used, among 
+other thing, to add style. For instance, to italicize the text of all 
+paragraphs with a class of “moreinfo,” one could write, in CSS:
+p.moreinfo { font-style: italic } 
+ By placing that rule in a separate file, the style may be shared by any 
+number of HTML documents.
+
+More Information
+
+ For more information about HTML and CSS, see tutorials for HTML and CSS <>. 
+
+ For advanced document transformations and layout beyond CSS, see XSLT <> & 
+XSL-FO. <> 
+
+Recent W3C Press Releases and Member Testimonials <> 
+
+ * 
+HTML5 Definition Complete, W3C Moves to Interoperability Testing and 
+Performance <http://www.w3.org/2012/12/html5-cr.html.en> 
+
+17 December 2012
+
+Recent Press
+  18 June 
+Knight Blog <http://www.knightfoundation.org/blogs/knightblog/> 
+ “The World Wide Web Consortium at 20: Moving the Web toward its ‘full 
+potential’”  
+<http://www.knightfoundation.org/blogs/knightblog/2014/6/18/world-wide-web-consortium-20-moving-web-toward-its-full-potential/>
+  18 June 
+ZDNet <http://www.zdnet.fr/> 
+ “HTML5 : le W3C devrait finaliser la spécification avant la fin de l’année”  
+<http://www.zdnet.fr/actualites/html5-le-w3c-devrait-finaliser-la-specification-avant-la-fin-de-l-annee-39802613.htm>
+  17 June 
+Redmond Magazine <http://redmondmag.com/> 
+ “HTML5 on Track for W3C Finalization by Year's End”  
+<http://redmondmag.com/articles/2014/06/17/html5-finalization.aspx> 
+  13 June 
+Laboratory Equipment <http://www.laboratoryequipment.com/> 
+ “Tech Lets You Track Your Data Online ”  
+<http://www.laboratoryequipment.com/news/2014/06/tech-lets-you-track-your-data-online>
+
+Current Status of Specifications
+
+Learn more about the current status of specifications related to: 
+
+ * HTML <> 
+ * CSS <> 
+ * Best Practices for Authoring HTML <> 
+ * Web Fonts <> 
+ * Digital Publishing <> 
+These W3C Groups <> are working on the related specifications: 
+
+ * Cascading Style Sheets (CSS) Working Group 
+<http://www.w3.org/Style/CSS/members> 
+ * HTML Working Group <http://www.w3.org/html/wg/> 
+ * Device APIs Working Group <http://www.w3.org/2009/dap/> 
+ * Forms Working Group <http://www.w3.org/MarkUp/Forms/> 
+ * Internationalization Working Group <http://www.w3.org/International/core/> 
+ * Math Working Group <http://www.w3.org/Math/> 
+ * Protocols and Formats Working Group <http://www.w3.org/WAI/PF/> 
+ * RDFa Working Group <http://www.w3.org/2010/02/rdfa/> 
+ * SVG Working Group <http://www.w3.org/Graphics/SVG/WG/> 
+ * Technical Architecture Group <http://www.w3.org/2001/tag/> 
+ * Web Applications Working Group <http://www.w3.org/2008/webapps/> 
+ * Web Content Accessibility Guidelines Working Group 
+<http://www.w3.org/WAI/GL/> 
+ * WebFonts Working Group <http://www.w3.org/Fonts/WG/> 
+ * XML Core Working Group <http://www.w3.org/XML/Core/> 
+ * XSLT Working Group <http://www.w3.org/Style/XSL/> 
+Current Status
+
+ * HTML <> 
+ * CSS <> 
+ * Best Practices for Authoring HTML <> 
+ * Web Fonts <> 
+ * Digital Publishing <> 
+Use It
+
+ * Tutorials <> 
+ * CSS Software <> 
+ * XHTML 1.0 Strict cheat sheet <http://www.w3.org/2010/04/xhtml10-strict.html>
+ * XHTML Basic 1.1 cheat sheet <http://www.w3.org/2007/07/xhtml-basic-ref.html>
+ * W3C cheat sheet <> 
+ * Recommended Doctype Declarations 
+<http://www.w3.org/QA/2002/04/valid-dtd-list.html> 
+Validators
+
+ * Markup <http://validator.w3.org/> 
+ * CSS <http://jigsaw.w3.org/css-validator/> 
+Logos
+
+ * HTML <http://www.w3.org/QA/Tools/Icons> 
+ * CSS <http://www.w3.org/QA/Tools/Icons> 
+Footer Navigation
+
+Navigation
+
+ * Home <> 
+ * Standards <> 
+ * Participate <> 
+ * Membership <> 
+ * About W3C <> 
+Contact W3C
+
+ * Contact <> 
+ * Help and FAQ <> 
+ * Sponsor / Donate <> 
+ * Site Map <> 
+ * Feedback <http://lists.w3.org/Archives/Public/site-comments/> 
+W3C Updates
+
+ *  <http://twitter.com/W3C> 
+Copyright © 2013 W3C ® ( MIT  <http://www.csail.mit.edu/>,  ERCIM  
+<http://www.ercim.eu/>, Keio <http://www.keio.ac.jp/>, Beihang 
+<http://ev.buaa.edu.cn/>) Usage policies apply <>. 
