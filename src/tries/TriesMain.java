@@ -21,7 +21,7 @@ public class TriesMain {
         String text = Files.readString(Paths.get("./Protein.txt"));
 
         // Use StringTokenizer to extract the content of the text into a list
-        List<String> tokens = Collections.list(new StringTokenizer(text)).stream()
+        List<String> tokens = Collections.list(new StringTokenizer(text, ",.-_() \t\n\r\f")).stream()
                 .map(token -> (String) token)
                 .collect(Collectors.toList());
 
@@ -38,9 +38,9 @@ public class TriesMain {
         Iterable<String> iterable = ternarySearchTree.keys();
         System.out.println("METHOD KEYS():");
         for (String s : iterable) {
-            if (s.toLowerCase().contains("protein")) {
+            //if (s.toLowerCase().contains("protein")) {
                 System.out.println(s);
-            }
+            //}
         }
 
         Iterable<String> iterable2 = ternarySearchTree.prefixMatch("protein");
