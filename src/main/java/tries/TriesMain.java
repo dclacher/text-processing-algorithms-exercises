@@ -1,14 +1,13 @@
 package tries;
 
+import pattern_matching.PatternMatchingEnum;
+import pattern_matching.PatternMatchingUtils;
 import textprocessing.*;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class TriesMain {
@@ -29,30 +28,31 @@ public class TriesMain {
         TST<Integer> ternarySearchTree = new TST<>();
         for (String token : tokens) {
             ternarySearchTree.put(token, tokens.indexOf(token));
-            System.out.println("Key: " + token + ", Index: " + tokens.indexOf(token));
+            // System.out.println("Key: " + token + ", Index: " + tokens.indexOf(token));
         }
 
         // b. Do several searches of keys “protein”, “complex”, “PPI”, “prediction”, and others, and
         // show the occurrences of these words in file Protein.txt
 
-        Iterable<String> iterable = ternarySearchTree.keys();
-        System.out.println("METHOD KEYS():");
-        for (String s : iterable) {
-            //if (s.toLowerCase().contains("protein")) {
-                System.out.println(s);
-            //}
-        }
+        String[] patterns = {"protein", "complex", "PPI", "prediction", "interaction", "analysis"};
+        searchPatternsAndDisplayOccurrencesInText(patterns, text, ternarySearchTree);
+    }
 
-        Iterable<String> iterable2 = ternarySearchTree.prefixMatch("protein");
-        System.out.println("METHOD PREFIXMATCH(...):");
-        for (String t : iterable2) {
-            System.out.println(t);
-        }
-
-        Iterable<String> iterable3 = ternarySearchTree.wildcardMatch("protei.........");
-        System.out.println("METHOD WILDCARDMATCH(...):");
-        for (String u : iterable3) {
-            System.out.println(u);
+    private static void searchPatternsAndDisplayOccurrencesInText(String[] patterns,
+                                                                  String text,
+                                                                  TST<Integer> ternarySearchTree) {
+        for (String pattern : patterns) {
+            System.out.println("Value for key '" + pattern + "' in the TST: " + ternarySearchTree.get(pattern));
+            System.out.println("Occurrences (offsets) of key '" + pattern + "' in the text file:");
+            String[] singlePattern = {pattern};
+            Map<String, List<Integer>> occurrences =
+                    PatternMatchingUtils.getPatternsOffsetsInText(singlePattern, text, PatternMatchingEnum.BOYER_MOORE.value);
+            Iterator<Map.Entry<String, List<Integer>>> iterator = occurrences.entrySet().iterator();
+            while (iterator.hasNext()) {
+                Map.Entry<String, List<Integer>> entry = iterator.next();
+                List<Integer> value = entry.getValue();
+                value.forEach(System.out::println);
+            }
         }
     }
 }

@@ -27,7 +27,8 @@ public class PatternMatchingMain {
         for (int i = 0; i < 100; i++) {
             long startTimeBF = System.nanoTime();
             // Call the method to retrieve all the offsets for all patterns and save them in a Map object
-            Map<String, List<Integer>> bruteForceResult = bruteForceMatching(patterns, text);
+            Map<String, List<Integer>> bruteForceResult =
+                    PatternMatchingUtils.getPatternsOffsetsInText(patterns, text, PatternMatchingEnum.BRUTE_FORCE.value);
             // Traverse the Map to show the results
             Iterator<Map.Entry<String, List<Integer>>> iterator = bruteForceResult.entrySet().iterator();
             while (iterator.hasNext()) {
@@ -46,7 +47,8 @@ public class PatternMatchingMain {
         for (int i = 0; i < 100; i++) {
             long startTimeBM = System.nanoTime();
             // Call the method to retrieve all the offsets for all patterns and save them in a Map object
-            Map<String, List<Integer>> boyerMooreResult = boyerMooreMatching(patterns, text);
+            Map<String, List<Integer>> boyerMooreResult =
+                    PatternMatchingUtils.getPatternsOffsetsInText(patterns, text, PatternMatchingEnum.BOYER_MOORE.value);
             // Traverse the Map to show the results
             Iterator<Map.Entry<String, List<Integer>>> iterator = boyerMooreResult.entrySet().iterator();
             while (iterator.hasNext()) {
@@ -65,7 +67,8 @@ public class PatternMatchingMain {
         for (int i = 0; i < 100; i++) {
             long startTimeKMP = System.nanoTime();
             // Call the method to retrieve all the offsets for all patterns and save them in a Map object
-            Map<String, List<Integer>> kmpResult = kmpMatching(patterns, text);
+            Map<String, List<Integer>> kmpResult =
+                    PatternMatchingUtils.getPatternsOffsetsInText(patterns, text, PatternMatchingEnum.KMP.value);
             // Traverse the Map to show the results
             Iterator<Map.Entry<String, List<Integer>>> iterator = kmpResult.entrySet().iterator();
             while (iterator.hasNext()) {
@@ -82,97 +85,5 @@ public class PatternMatchingMain {
         System.out.println("Average time for Brute Force in nanoseconds: " + totalTimeBF / 100);
         System.out.println("Average time for Boyer-Moore in nanoseconds: " + totalTimeBM / 100);
         System.out.println("Average time for KMP in nanoseconds: " + totalTimeKMP / 100);
-    }
-
-    /**
-     * Method to find all occurrences of patterns in a text using the KMP algorithm
-     * @param patterns the patterns to be found
-     * @param text the text to be searched
-     * @return a map with a list of offsets (occurrences) for each one of the patterns
-     */
-    private static Map<String, List<Integer>> kmpMatching(String[] patterns, String text) {
-        Map<String, List<Integer>> offsets = new HashMap<>();
-        for (String pattern : patterns) {
-            String tempText = text;
-            int tempLength = tempText.length();
-            int textLength = text.length();
-            List<Integer> patternOffsets = new ArrayList<>();
-            int i = 0;
-            while (i < textLength) {
-                KMP kmp = new KMP(pattern);
-                int offset = kmp.search(tempText);
-                if (offset + i < textLength) {
-                    patternOffsets.add(offset + i);
-                }
-                if (offset < tempLength) {
-                    tempText = tempText.substring(offset + 1);
-                    tempLength = tempText.length();
-                }
-                i = i + offset + 1;
-            }
-            offsets.put(pattern, patternOffsets);
-        }
-        return offsets;
-    }
-
-    /**
-     * Method to find all occurrences of patterns in a text using the Boyer-Moore algorithm
-     * @param patterns the patterns to be found
-     * @param text the text to be searched
-     * @return a map with a list of offsets (occurrences) for each one of the patterns
-     */
-    private static Map<String, List<Integer>> boyerMooreMatching(String[] patterns, String text) {
-        Map<String, List<Integer>> offsets = new HashMap<>();
-        for (String pattern : patterns) {
-            String tempText = text;
-            int tempLength = tempText.length();
-            int textLength = text.length();
-            List<Integer> patternOffsets = new ArrayList<>();
-            int i = 0;
-            while (i < textLength) {
-                BoyerMoore boyerMoore = new BoyerMoore(pattern);
-                int offset = boyerMoore.search(tempText);
-                if (offset + i < textLength) {
-                    patternOffsets.add(offset + i);
-                }
-                if (offset < tempLength) {
-                    tempText = tempText.substring(offset + 1);
-                    tempLength = tempText.length();
-                }
-                i = i + offset + 1;
-            }
-            offsets.put(pattern, patternOffsets);
-        }
-        return offsets;
-    }
-
-    /**
-     * Method to find all occurrences of patterns in a text using the Brute Force algorithm
-     * @param patterns the patterns to be found
-     * @param text the text to be searched
-     * @return a map with a list of offsets (occurrences) for each one of the patterns
-     */
-    private static Map<String, List<Integer>> bruteForceMatching(String[] patterns, String text) {
-        Map<String, List<Integer>> offsets = new HashMap<>();
-        for (String pattern : patterns) {
-            String tempText = text;
-            int tempLength = tempText.length();
-            int textLength = text.length();
-            List<Integer> patternOffsets = new ArrayList<>();
-            int i = 0;
-            while (i < textLength) {
-                int offset = BruteForceMatch.search1(pattern, tempText);
-                if (offset + i < textLength) {
-                    patternOffsets.add(offset + i);
-                }
-                if (offset < tempLength) {
-                    tempText = tempText.substring(offset + 1);
-                    tempLength = tempText.length();
-                }
-                i = i + offset + 1;
-            }
-            offsets.put(pattern, patternOffsets);
-        }
-        return offsets;
     }
 }
