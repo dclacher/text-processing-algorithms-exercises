@@ -14,7 +14,7 @@ public class ConversionUtils {
      * @param file the HTML file
      * @return formatted text
      */
-    public static String getPlainTextFromHtml(File file) {
+    public static String getPlainTextFromHtmlFile(File file) {
         try {
             Document document = Jsoup.parse(file, "UTF-8", "");
             return document.text();
