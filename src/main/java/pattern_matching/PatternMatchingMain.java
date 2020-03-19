@@ -5,7 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 
-import textprocessing.*;
+import utils.PatternMatchingUtils;
 
 public class PatternMatchingMain {
 

@@ -1,7 +1,7 @@
 package tries;
 
 import pattern_matching.PatternMatchingEnum;
-import pattern_matching.PatternMatchingUtils;
+import utils.PatternMatchingUtils;
 import textprocessing.*;
 
 import java.io.IOException;

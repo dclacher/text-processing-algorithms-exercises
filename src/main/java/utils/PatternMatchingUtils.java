@@ -1,5 +1,6 @@
-package pattern_matching;
+package utils;
 
+import pattern_matching.PatternMatchingEnum;
 import textprocessing.BoyerMoore;
 import textprocessing.BruteForceMatch;
 import textprocessing.KMP;
