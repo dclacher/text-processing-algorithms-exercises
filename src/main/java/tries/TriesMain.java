@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 public class TriesMain {
 
@@ -20,8 +21,8 @@ public class TriesMain {
         String text = Files.readString(Paths.get("./static/Protein.txt"));
 
         // Use StringTokenizer to extract the content of the text into a list
-        List<String> tokens = Collections.list(new StringTokenizer(text, ",.-_() \t\n\r\f")).stream()
-                .map(token -> (String) token)
+        List<String> tokens = Collections.list(new StringTokenizer(text, ",._() \t\n\r\f")).stream()
+                .map(token -> token.toString().toLowerCase())
                 .collect(Collectors.toList());
 
         // Create the TST from the list generated above
@@ -30,6 +31,14 @@ public class TriesMain {
             ternarySearchTree.put(token, tokens.indexOf(token));
             // System.out.println("Key: " + token + ", Index: " + tokens.indexOf(token));
         }
+
+        // Getting the keys from the TST
+        List<String> result = StreamSupport.stream(ternarySearchTree.keys().spliterator(), false)
+                .collect(Collectors.toList());
+        for (String s : result) {
+            System.out.println(result.indexOf(s) + "\t\t" + s);
+        }
+        System.out.println(ternarySearchTree.get("on")); // index in list is 116, but in TST it's 147
 
         // b. Do several searches of keys “protein”, “complex”, “PPI”, “prediction”, and others, and
         // show the occurrences of these words in file Protein.txt
